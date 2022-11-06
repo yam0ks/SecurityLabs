@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Console</class>
+ <widget class="QMainWindow" name="Console">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>444</width>
+    <height>407</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Console</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="0" column="0">
+     <widget class="QTextBrowser" name="console"/>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>444</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuMenu">
+    <property name="title">
+     <string>Menu</string>
+    </property>
+    <widget class="QMenu" name="menuTxt">
+     <property name="title">
+      <string>Txt</string>
+     </property>
+     <addaction name="actionTxtCreate"/>
+     <addaction name="actionTxtWrite"/>
+    </widget>
+    <widget class="QMenu" name="menuJson">
+     <property name="title">
+      <string>Json</string>
+     </property>
+     <addaction name="actionJsonCreate"/>
+     <addaction name="actionJsonSerialize"/>
+    </widget>
+    <widget class="QMenu" name="menuXml">
+     <property name="title">
+      <string>Xml</string>
+     </property>
+     <addaction name="actionXmlCreate"/>
+     <addaction name="actionXmlSerialize"/>
+    </widget>
+    <widget class="QMenu" name="menuZip">
+     <property name="title">
+      <string>Zip</string>
+     </property>
+     <addaction name="actionZipCreate"/>
+     <addaction name="actionZipAdd"/>
+     <addaction name="actionZipUnzip"/>
+     <addaction name="actionZipRemove"/>
+    </widget>
+    <addaction name="actionDI"/>
+    <addaction name="menuTxt"/>
+    <addaction name="menuJson"/>
+    <addaction name="menuXml"/>
+    <addaction name="menuZip"/>
+    <addaction name="actionOpen"/>
+    <addaction name="actionDelete"/>
+   </widget>
+   <addaction name="menuMenu"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionDI">
+   <property name="text">
+    <string>Disks info</string>
+   </property>
+  </action>
+  <action name="actionTxtCreate">
+   <property name="text">
+    <string>Create</string>
+   </property>
+  </action>
+  <action name="actionTxtWrite">
+   <property name="text">
+    <string>Write</string>
+   </property>
+  </action>
+  <action name="actionRemove">
+   <property name="text">
+    <string>Read</string>
+   </property>
+  </action>
+  <action name="actionRemove_2">
+   <property name="text">
+    <string>Remove</string>
+   </property>
+  </action>
+  <action name="actionJsonCreate">
+   <property name="text">
+    <string>Create</string>
+   </property>
+  </action>
+  <action name="actionJsonSerialize">
+   <property name="text">
+    <string>Serialize</string>
+   </property>
+  </action>
+  <action name="actionRead">
+   <property name="text">
+    <string>Read</string>
+   </property>
+  </action>
+  <action name="actionRemove_3">
+   <property name="text">
+    <string>Remove</string>
+   </property>
+  </action>
+  <action name="actionXmlCreate">
+   <property name="text">
+    <string>Create</string>
+   </property>
+  </action>
+  <action name="actionXmlSerialize">
+   <property name="text">
+    <string>Serialize</string>
+   </property>
+  </action>
+  <action name="actionZipCreate">
+   <property name="text">
+    <string>Create</string>
+   </property>
+  </action>
+  <action name="actionZipAdd">
+   <property name="text">
+    <string>Add file</string>
+   </property>
+  </action>
+  <action name="actionZipUnzip">
+   <property name="text">
+    <string>Unzip file</string>
+   </property>
+  </action>
+  <action name="actionZipRemove">
+   <property name="text">
+    <string>Remove file</string>
+   </property>
+  </action>
+  <action name="actionOpen">
+   <property name="text">
+    <string>Read file</string>
+   </property>
+  </action>
+  <action name="actionDelete">
+   <property name="text">
+    <string>Remove file</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
