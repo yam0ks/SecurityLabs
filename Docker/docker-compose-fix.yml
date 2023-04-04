@@ -8,7 +8,7 @@ services:
     pid: "host"
     build: .
     ports:
-      - "127.0.0.1:11280:11280"
+      - "127.0.0.1:15100:80"
     mem_limit: 1024mb
     cpu_shares: 1024
     depends_on:
@@ -29,7 +29,7 @@ services:
     image: postgres
     pid: "host"
     ports:
-      - "127.0.0.1:5432:5432"
+      - "127.0.0.1:15101:5432"
     mem_limit: 1024mb
     cpu_shares: 1024
     environment:
