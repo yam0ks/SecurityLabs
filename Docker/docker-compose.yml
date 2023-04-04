@@ -1,0 +1,19 @@
+# docker-compose.yml
+---
+version: '3.3'
+services:
+  nginx_server:
+    container_name: 'nginx_c'
+    image: nginx:alpine
+    build: .
+    ports:
+      - 80:80
+  postgres_db:
+    container_name: 'postgres_c'
+    image: postgres
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: database

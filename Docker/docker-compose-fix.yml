@@ -1,0 +1,48 @@
+# docker-compose.yml
+---
+version: '2.2'
+services:
+  nginx_server:
+    container_name: 'nginx_c'
+    image: nginx:alpine
+    pid: "host"
+    build: .
+    ports:
+      - "127.0.0.1:11280:11280"
+    mem_limit: 1024mb
+    cpu_shares: 1024
+    depends_on:
+      - postgres_db
+    security_opt:
+      - no-new-privileges:true
+      - apparmor:docker-default
+    restart: on-failure:5
+    privileged: false
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:11280/"]
+      interval: 5m
+      timeout: 10s
+      retries: 3
+
+  postgres_db:
+    container_name: 'postgres_c'
+    image: postgres
+    pid: "host"
+    ports:
+      - "127.0.0.1:5432:5432"
+    mem_limit: 1024mb
+    cpu_shares: 1024
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: database
+    security_opt:
+      - no-new-privileges:true
+      - apparmor:docker-default
+    restart: on-failure:5
+    privileged: false
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "postgres"]
+      interval: 5m
+      timeout: 10s
+      retries: 5
