@@ -1,3 +1,23 @@
+## Выполним запуск контейнеров
+
+```
+docker-compose up -d --build
+```
+
+## Просканируем контейнеры при помощи утилиты docker_bench_security
+
+```
+docker run -it --net host --pid host --cap-add audit_control \
+-e DOCKER_CONTENT_TRUST=$DOCKER_CONTENT_TRUST \
+-v /var/lib:/var/lib \
+-v /var/run/docker.sock:/var/run/docker.sock \
+-v /etc:/etc --label docker_bench_security \
+docker/docker-bench-security
+```
+
+## Отчет, полученный в результате сканирования
+
+```
 [INFO] 5 - Container Runtime
 [WARN] 5.1  - Ensure AppArmor Profile is Enabled
 [WARN]      * No AppArmorProfile Found: nginx_c
@@ -53,7 +73,16 @@
 [PASS] 5.29  - Ensure Docker's default bridge docker0 is not used
 [PASS] 5.30  - Ensure the host's user namespaces is not shared
 [PASS] 5.31  - Ensure the Docker socket is not mounted inside any containers
+```
+## Выполним запуск контейнеров при помощи исправленной версии docker-compose
 
+```
+docker-compose -f docker-compose-fix.yml up -d
+```
+
+## Повторно просканируем контейнеры
+
+```
 [INFO] 5 - Container Runtime
 [WARN] 5.1  - Ensure AppArmor Profile is Enabled
 [WARN]      * No AppArmorProfile Found: web
@@ -98,3 +127,4 @@
 [PASS] 5.29  - Ensure Docker's default bridge docker0 is not used
 [PASS] 5.30  - Ensure the host's user namespaces is not shared
 [PASS] 5.31  - Ensure the Docker socket is not mounted inside any containers
+```
